@@ -66,12 +66,24 @@ app.post('/send', async (req, res) => {
       let mailOptions = {
         from: "mohamedfadelmoumeni@gmail.com",
         to: clientEmail,
-        subject: "Réponse",
+        subject: accept == "Accepter" ? "Belgium Transfer : Acceptation de la demande de réservation de taxi.":"Belgium Transfer : Refus de la demande de réservation de taxi.",
         html:accept == "Accepter" ? `
-        Votre demande a ete accepté .
-        Vous pouvez effecuter le paiement  : ${url}
+        Bonjour,
+
+Suite à votre demande de réservation effectuée via notre site Belgium Transfer, nous avons le plaisir de vous informer que votre demande a été acceptée.
+Vous pouvez passer à l'étape de paiement en cliquant sur le lien ${url}.
+Et nous sommes à votre disposition pour toute information supplémentaire que vous souhaiteriez de notre part.
+
+Bon voyage.
+Belgium Transfer 
         ` : `
-        Votre demande a ete refuser .
+        Bonjour,
+
+Suite à votre demande de réservation effectuée via notre site Belgium Transfer, nous sommes désolés de vous informer que votre demande a été refusée pour des raisons fonctionnelles.
+Veuillez réessayer la prochaine fois, et nous serons à votre disposition pour toute information supplémentaire que vous souhaiteriez de notre part.
+
+Bon voyage.
+Belgium Transfer.
         `
       };
       
